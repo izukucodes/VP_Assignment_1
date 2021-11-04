@@ -8,13 +8,22 @@ namespace Assignment1
 {
     class Program
     {
+        /// <summary>
+        /// Displays Menu 
+        /// </summary>
         public static void Menu()
         {
             Console.WriteLine("Press 1 to Add new Student");
             Console.WriteLine("Press 2 to Display Youngest Student");
             Console.WriteLine("Press 3 Delete a Student after taking as input");
             Console.WriteLine("Press 4 Create a new List from given list containing only 3rd Semester Students");
-        }     
+        }
+        
+        /// <summary>
+        /// Displays Student Data
+        /// </summary>
+        /// <param name="s"></param>
+        
         public static void Display(Student s)
         {
             Console.WriteLine($"ID: {s.ID}");
@@ -24,9 +33,9 @@ namespace Assignment1
         }
 
 
-static void Main(string[] args)
+        static void Main(string[] args)
         {
-
+            // List with Dummy Values
             List<Student> students = new List<Student>
             {
                 new Student{ ID = 1, Name = "Hassan", Age = 21, Semester = 5  },
@@ -47,7 +56,7 @@ static void Main(string[] args)
                 if (choice == 1)
                 {
                     // Taking Student Input
-
+                    // Needs Refactoring
                     Student newStd = new Student();
                     Console.Write("Enter ID: ");
                     newStd.ID = Convert.ToInt32(Console.ReadLine());
@@ -64,6 +73,7 @@ static void Main(string[] args)
                 else if (choice == 2)
                 {
                     Student YoungestStd = students[0];
+
                     foreach (var std in students)
                     {
                         YoungestStd = std.Age < YoungestStd.Age ? std : YoungestStd;
@@ -76,11 +86,10 @@ static void Main(string[] args)
                     Console.Write("Enter ID: ");
                     int id = Convert.ToInt32(Console.ReadLine());
 
+                    // Try another Lambda Expression
                     Student s = students.FirstOrDefault(c => c.ID == id);
-
-
                     students.Remove(s);
-                    
+
                     // For Testing
                     //Console.WriteLine("Removed Successfully");
                     //foreach(var a in students)

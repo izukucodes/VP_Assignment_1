@@ -8,6 +8,7 @@ namespace Assignment1
 {
     class MyArrayList : ArrayList
     {
+
         public override void Remove(Object a)
         {
             while (base.Contains(a))
